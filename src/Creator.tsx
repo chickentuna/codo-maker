@@ -4,7 +4,7 @@ import './Creator.css';
 import { SketchPicker } from 'react-color'
 import { examples } from './examples'
 import functionPlot from "function-plot";
-import { Box, List, ListItem, ListItemText, Paper, TextField, ListSubheader, Button } from "@material-ui/core";
+import { Box, Paper, TextField, Button } from "@material-ui/core";
 
 function initPlot(formula: string, coeff: number) {
   let contentsBounds = document.body.getBoundingClientRect();

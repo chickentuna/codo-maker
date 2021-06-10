@@ -1,4 +1,3 @@
-import { ChromePicker } from 'react-color';
 import './App.css';
 import {Creator} from './Creator'
 import { choice } from './utils';
