@@ -10,10 +10,10 @@ import { Box, TextField } from "@material-ui/core";
 function initPlot(formula: string, coeff: number) {
   let contentsBounds = document.body.getBoundingClientRect();
   let width = 800;
-  let height = 500;
+  // let height = 500;
   let ratio = contentsBounds.width / width;
   width *= ratio;
-  height *= ratio;
+  // height *= ratio;
   const errs = document.querySelector('#errs')
 
   try {
@@ -67,8 +67,8 @@ function initPlot(formula: string, coeff: number) {
 
 export function Creator() {
   const [formula, setFormula] = useState('(sin(4*theta))*6')
-  const [color, setColor] = useState('#000')
-  const [coeff, setCoeff] = useState(6)
+  // const [color, setColor] = useState('#000')
+  const [coeff] = useState(6)
 
   useEffect(() => {
     initPlot(formula, coeff)
