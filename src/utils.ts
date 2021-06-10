@@ -6,6 +6,10 @@ export function lerp (a: number, b: number, u: number) {
   }
 }
 
+export function choice<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)]
+}
+
 /**
  * Gets the percentage position in [a;b] of number v
  */

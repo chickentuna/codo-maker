@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react"
 import eyes from './eyes.png';
 import './Creator.css';
 import { SketchPicker } from 'react-color'
-
-
+import { examples } from './examples'
 import functionPlot from "function-plot";
-import { Box, TextField } from "@material-ui/core";
+import { Box, List, ListItem, ListItemText, Paper, TextField, ListSubheader, Button } from "@material-ui/core";
 
 function initPlot(formula: string, coeff: number) {
   let contentsBounds = document.body.getBoundingClientRect();
@@ -29,17 +28,9 @@ function initPlot(formula: string, coeff: number) {
       disableZoom: true,
       data: [
         {
-          //r: "R + Ar * sin(N*theta)",
-          //r: "R + (1/(1+E^(-(Ar * sin(N*theta)))))/10",
-          //r: "R + (1/(1+E^(-( -abs(sin(4*theta)) ))))/2",
-
           r: `R + (1/(1+E^(-( ${xFormula} ))))/Ar`,
-          // r: `((cos(${formula}) + 1)/2 * Ar) + 1`,
-          // r:formula, 
+          // r: `${xFormula}`,
 
-          //r: "R + (1/(1+E^(-( cos(theta*theta) ))))/2",
-          //r: (sin(5*theta))*4
-          //r: -26*abs(sin(5*theta))
           scope: {
             R: 0.5,
             high: 4,
@@ -60,7 +51,6 @@ function initPlot(formula: string, coeff: number) {
       errs.innerHTML = ''
     }
   } catch (e) {
-
     if (errs != null) {
       errs.innerHTML = e.message
     }
@@ -69,7 +59,7 @@ function initPlot(formula: string, coeff: number) {
 }
 
 export function Creator() {
-  const [formula, setFormula] = useState('(sin(4*theta))*6')
+  const [formula, setFormula] = useState('0')
   // const [color, setColor] = useState('#000')
   const [coeff] = useState(6)
 
@@ -79,28 +69,63 @@ export function Creator() {
 
   return (
     <>
-      <div className="preview">
-        <div className="eyesContainer">
-          <img className="eyes" src={eyes} alt=''></img>
+        <div className="preview">
+          <div className="eyesContainer">
+            <img className="eyes" src={eyes} alt=''></img>
+          </div>
+
+          <div id="plot"></div>
         </div>
 
-        <div id="plot"></div>
-      </div>
-      <Box m={4}>
         <Box m={4}>
-          <TextField
-            value={formula}
-            onChange={e => setFormula(e.target.value)}
-            label="Formula"
-            fullWidth
-            variant='outlined'
-          />
+          <Box m={4}>
+            <TextField
+              value={formula}
+              onChange={e => setFormula(e.target.value)}
+              label="Formula"
+              fullWidth
+              variant='outlined'
+            />
+          </Box>
         </Box>
-      </Box>
-      <div id="errs"></div>
-      <div>
-        <SketchPicker />
-      </div>
+        <div id="errs"></div>
+        <Box display="flex" justifyContent='center' m={4}>
+        {Object.entries(examples).map(([name, formula]) => (
+              <Button
+                variant="contained"
+                color="primary"
+                key={name}
+                onClick={() => setFormula(formula)}>
+                {name}
+              </Button>
+            ))}
+         
+          {/* <Box m={1} width={300}>
+          <Paper variant='outlined'>
+            <List
+              subheader={
+                <ListSubheader component="div">
+                  Examples
+              </ListSubheader>
+              }
+            >
+              {Object.entries(examples).map(([name, formula]) => (
+                <ListItem key={name} button>
+                  <ListItemText primary={name} onClick={() => { setFormula(formula) }} />
+                </ListItem>
+              ))}
+            </List>
+          </Paper>
+        </Box> */}
+          <Box m={1}>
+            <Paper variant='outlined'>
+              <div>
+                <SketchPicker />
+              </div>
+            </Paper>
+          </Box>
+        </Box>
+
     </>
   )
 }
