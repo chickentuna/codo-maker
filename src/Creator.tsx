@@ -42,8 +42,11 @@ function initPlot(formula: string, coeff: number) {
           //r: -26*abs(sin(5*theta))
           scope: {
             R: 0.5,
-            Ar: coeff,
-            N: 100
+            high: 4,
+            low: -4,
+            pi: 3.14,
+            PI: 3.14,
+            Ar: coeff
           },
           fnType: "polar",
           graphType: "polyline",
