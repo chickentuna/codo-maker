@@ -1,6 +1,7 @@
 {
   "name": "codo-maker",
   "version": "0.1.0",
+  "homepage": "https://chickentuna.github.io/codo-maker/build",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
