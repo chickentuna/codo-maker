@@ -4,7 +4,7 @@ import './Creator.css';
 import { SketchPicker } from 'react-color'
 import { examples } from './examples'
 import functionPlot from "function-plot";
-import { Box, Paper, TextField, Button } from "@material-ui/core";
+import { Box, Paper, TextField, Button, Typography, Divider, Container } from "@material-ui/core";
 
 function initPlot(formula: string, coeff: number) {
   let contentsBounds = document.body.getBoundingClientRect();
@@ -68,17 +68,26 @@ export function Creator() {
   }, [formula, coeff])
 
   return (
-    <>
-        <div className="preview">
-          <div className="eyesContainer">
-            <img className="eyes" src={eyes} alt=''></img>
-          </div>
 
-          <div id="plot"></div>
+    <Container maxWidth="md">
+      <Typography variant="h4" component="h4">
+        Preview
+      </Typography>
+      <div className="preview">
+        <div className="eyesContainer">
+          <img className="eyes" src={eyes} alt=''></img>
         </div>
 
-        <Box m={4}>
-          <Box m={4}>
+        <div id="plot"></div>
+      </div>
+      <Divider />
+
+      <Box m={4}>
+        <Typography variant="h4" component="h4">
+          Shape
+      </Typography>
+        <Box display="flex" justifyContent='center'>
+          <Box m={4} width={400}>
             <TextField
               value={formula}
               onChange={e => setFormula(e.target.value)}
@@ -88,44 +97,32 @@ export function Creator() {
             />
           </Box>
         </Box>
-        <div id="errs"></div>
-        <Box display="flex" justifyContent='center' m={4}>
-        {Object.entries(examples).map(([name, formula]) => (
-              <Button
-                variant="contained"
-                color="primary"
-                key={name}
-                onClick={() => setFormula(formula)}>
-                {name}
-              </Button>
-            ))}
-         
-          {/* <Box m={1} width={300}>
-          <Paper variant='outlined'>
-            <List
-              subheader={
-                <ListSubheader component="div">
-                  Examples
-              </ListSubheader>
-              }
-            >
-              {Object.entries(examples).map(([name, formula]) => (
-                <ListItem key={name} button>
-                  <ListItemText primary={name} onClick={() => { setFormula(formula) }} />
-                </ListItem>
-              ))}
-            </List>
-          </Paper>
-        </Box> */}
-          <Box m={1}>
-            <Paper variant='outlined'>
-              <div>
-                <SketchPicker />
-              </div>
-            </Paper>
-          </Box>
+      </Box>
+      <div id="errs"></div>
+      <Box m={4}>
+        <Typography variant="h6" component="h6" color='primary'>
+          Examples
+      </Typography>
+        <Box m={2}>
+          {Object.entries(examples).map(([name, formula]) => (
+            <Button
+              variant="contained"
+              color="primary"
+              key={name}
+              onClick={() => setFormula(formula)}>
+              {name}
+            </Button>
+          ))}
         </Box>
+      </Box>
+      <Box m={1}>
+        <Paper variant='outlined'>
+          <div>
+            <SketchPicker />
+          </div>
+        </Paper>
+      </Box>
 
-    </>
+    </Container>
   )
 }

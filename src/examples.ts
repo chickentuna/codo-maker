@@ -1,5 +1,5 @@
 export const examples = {
-  Propeller: '(sin(4*theta))*10',
+  Propeller: '(sin(4*theta))*20',
   Fuzzy: 'sin(4*high*theta)',
   Geometric: '-abs(sin(4*theta))',
   Hair: ' floor(theta-1.05) == 0 ? (sin((theta+0.15)*30) * high) : low',
