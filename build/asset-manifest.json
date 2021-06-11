@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/codo-maker/build/static/css/main.4f8f6a12.chunk.css",
+    "main.js": "/codo-maker/build/static/js/main.e686603c.chunk.js",
+    "main.js.map": "/codo-maker/build/static/js/main.e686603c.chunk.js.map",
+    "runtime-main.js": "/codo-maker/build/static/js/runtime-main.10bd2aa3.js",
+    "runtime-main.js.map": "/codo-maker/build/static/js/runtime-main.10bd2aa3.js.map",
+    "static/js/2.c4173c48.chunk.js": "/codo-maker/build/static/js/2.c4173c48.chunk.js",
+    "static/js/2.c4173c48.chunk.js.map": "/codo-maker/build/static/js/2.c4173c48.chunk.js.map",
+    "static/js/3.f6dca92f.chunk.js": "/codo-maker/build/static/js/3.f6dca92f.chunk.js",
+    "static/js/3.f6dca92f.chunk.js.map": "/codo-maker/build/static/js/3.f6dca92f.chunk.js.map",
+    "index.html": "/codo-maker/build/index.html",
+    "static/css/main.4f8f6a12.chunk.css.map": "/codo-maker/build/static/css/main.4f8f6a12.chunk.css.map",
+    "static/js/2.c4173c48.chunk.js.LICENSE.txt": "/codo-maker/build/static/js/2.c4173c48.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.10bd2aa3.js",
+    "static/js/2.c4173c48.chunk.js",
+    "static/css/main.4f8f6a12.chunk.css",
+    "static/js/main.e686603c.chunk.js"
+  ]
+}
