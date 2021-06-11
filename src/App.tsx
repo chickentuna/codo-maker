@@ -5,6 +5,7 @@ import { choice } from './utils';
 const names = `Codo
 Codit
 Codoid
+Codoc
 Codee
 Codum
 Codude

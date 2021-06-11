@@ -9,6 +9,7 @@ export const examples = {
   Screw: '(theta + 0.2) % pi/2 < pi / 16 ? low : high',
   Sonic: '(((theta % (pi / 5))/(pi/5))*2 - 1) * 1.5',
   Cotonball: 'abs(cos(theta*9))*2',
+  Artistic: '-abs(sin(4*theta)) * cos(theta*4)*5',
   Small: 'low',
   Big: 'high'
 

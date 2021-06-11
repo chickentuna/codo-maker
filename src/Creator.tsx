@@ -5,14 +5,9 @@ import { SketchPicker } from 'react-color'
 import { examples } from './examples'
 import functionPlot from "function-plot";
 import { Box, Paper, TextField, Button, Typography, Divider, Container } from "@material-ui/core";
+// import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 
 function initPlot(formula: string, coeff: number) {
-  let contentsBounds = document.body.getBoundingClientRect();
-  let width = 800;
-  // let height = 500;
-  let ratio = contentsBounds.width / width;
-  width *= ratio;
-  // height *= ratio;
   const errs = document.querySelector('#errs')
 
   try {
@@ -28,6 +23,7 @@ function initPlot(formula: string, coeff: number) {
       disableZoom: true,
       data: [
         {
+          closed: false,
           r: `R + (1/(1+E^(-( ${xFormula} ))))/Ar`,
           // r: `${xFormula}`,
 
@@ -56,6 +52,22 @@ function initPlot(formula: string, coeff: number) {
     }
 
   }
+
+  //Testing image generation
+  /*
+  var node = document.getElementById('main');
+  if (node != null) {
+    toPng(node)
+      .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        document.body.appendChild(img);
+      })
+      .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+      });
+  }
+  */
 }
 
 export function Creator() {
@@ -73,7 +85,7 @@ export function Creator() {
       <Typography variant="h4" component="h4">
         Preview
       </Typography>
-      <div className="preview">
+      <div className="preview" id="main">
         <div className="eyesContainer">
           <img className="eyes" src={eyes} alt=''></img>
         </div>
